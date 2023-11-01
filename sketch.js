@@ -1,5 +1,6 @@
 //https://api.exchangerate-api.com/v4/latest/USD
-
+let starx = [];
+let stary = [];
 let speedx1;
 let speedy1;
 let speedx2;
@@ -39,12 +40,12 @@ function gotData(data){
   moni=data;
 }
 
-//function preload(){
+// function preload(){
 // usdimg=loadImage('EARTH.png');
 //}
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  let url='https://api.exchangerate-api.com/v4/latest/USD'
+  let url='https://api.exchangerate-api.com/v4/latest/USD';
   loadJSON(url,gotData);
    mov1=windowWidth/4 + random(-100,100);
    mov2=windowHeight/4+ random(-100,700);
@@ -67,6 +68,11 @@ function setup() {
    speedy4=5;
    speedx5=5;
    speedy5=5;
+
+ for(m=0;m<60;m++){
+  starx[m]=random(0,windowWidth);
+  stary[m]=random(0,windowHeight);
+ }
    
    print(windowWidth)
    print(windowHeight)
@@ -76,8 +82,8 @@ function setup() {
 
 
 function draw() {
-  background(55);
- 
+  background(20);
+  stars();
   extracircles();
   maincircle();
 
@@ -88,7 +94,7 @@ function draw() {
 
 function maincircle(){
 
-  fill(255,80,0);
+  fill(20,170,160);
   ellipseMode(CENTER);
   ellipse(windowWidth/2,windowHeight/2,moni.rates.USD*300);
   fill(55);
@@ -96,23 +102,24 @@ function maincircle(){
   
 }
 
+function stars(){
+  for(let p=0;p<starx.length;p++){
+    fill(255)
+    noStroke;
+    circle(starx[p],stary[p],3)
+  }
+
+}
+
 function extracircles(){
-
-
-
-
-
-
-  
-
 //print(moni.rates.EUR*2)
 //print(moni.rates.JPY*2)
-fill(255);
+fill(40,120,10);
   circle(mov1,mov2,moni.rates.JPY);
   circle(mov3,mov4,moni.rates.EUR*100);
   circle(mov5,mov6,moni.rates.GBP*100);
-  ellipse(mov7,mov8,moni.rates.USD*100);
-  ellipse(mov9,mov10,moni.rates.CAD*100);
+  circle(mov7,mov8,moni.rates.USD*100);
+  circle(mov9,mov10,moni.rates.CAD*100);
   
 
   mov1=mov1+speedx1*-1;
