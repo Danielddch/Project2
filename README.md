@@ -14,3 +14,5 @@ In the end the project was accomplished with minimal bugs:
 Otherwise, this was a very fun project to do! Espically with it being my first time touching p5.
 
 Thanks for looking!
+
+https://nomeiji.github.io/Project2/
